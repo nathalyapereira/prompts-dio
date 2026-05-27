@@ -1,110 +1,140 @@
-<!--START_SECTION:header-->
-<div align="center">
-  <p align="center">
-    <img 
-      alt="DIO Education" 
-      src="https://raw.githubusercontent.com/digitalinnovationone/template-github-trilha/main/.github/assets/logo.webp" 
-      width="100px" 
-    />
-    <h1>Título do Curso ou Projeto</h1>
-  </p>
-</div>
-<!--END_SECTION:header-->
+# 🤖 Agentes de Carreira em Tecnologia — DIO
 
-<p align="center">
-  <img src="https://img.shields.io/static/v1?label=DIO&message=Education&color=E94D5F&labelColor=202024" alt="DIO Project" />
-  <a href="NIVEL"><img  src="https://img.shields.io/static/v1?label=Nivel&message=Basico&color=E94D5F&labelColor=202024" alt="Nivel"></a>
+> Sistema multiagente para descoberta de perfil profissional e planejamento de carreira em tecnologia, desenvolvido com prompts de IA para o bootcamp da [DIO](https://dio.me).
 
-</p>
+---
 
-<!--  -->
-<table align="center">
-<thead>
-  <tr>
-    <td>
-        <p align="center">Expert</p>
-        <a href="https://github.com/felipeAguiarCode">
-        <img src="https://avatars0.githubusercontent.com/u/37452836?v=3&s=115" alt="@felipeAguiarCode"><br>
-      </a>
-    </td>
-    <td colspan="3">
-    <p>🎉 10y+ em sistemas comerciais com .NET C# e NODE.JS.
-      <br/>
-     🌟 Desenvolvedor fullstack - Coordenador de educação na DIO
-      <br/>
-    👨‍💻 Foco em front-ends SPA com React, Angular e Vue.js
-    </p>
-      <a 
-      href="https://www.linkedin.com/in/felipe-me/" 
-      align="center">
-           <img 
-            align="center" 
-            alt="Material de Apoio" 
-            src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"
-            >
-        </a>
-        <a href="https://www.instagram.com/felipeaguiar.exe/" target="_blank">
-            <img 
-              align="center" 
-              alt="Instagram" 
-              src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"
-            >
-        </a>
-    </td>
-  </tr>
-</thead>
-</table>
-<!--  -->
+## 📋 Visão Geral
 
-<br/>
-<br/>
+Este repositório contém dois agentes de IA que trabalham em conjunto para guiar o usuário desde a **descoberta do seu perfil profissional** até a **criação de um plano de estudos personalizado** em tecnologia.
 
-## 💻 Sobre o Projeto
+```
+Usuário → [Agent 1: Entrevistador] → [Agent 2: Planejador] → Roadmap Personalizado
+```
 
-Vamos construir uma página spa, responsiva, para usar em diversos tipos de micro, pequena e média empresas. Contém as seguintes seções: Header, Navigation, Home, Sobre, Serviços, Depoimentos, Contato e Footer que faz xxx e yyy
+---
 
-## 📚 Pré-requisitos de Habilidades e Níveis de Conhecimento
+## 🧩 Agentes
 
-Antes de ingressar neste conteúdo, é necessário possuir conhecimento prévio nas seguintes áreas:
+### 🟣 Agent 1 — Entrevistador de Carreira
 
-- [habilidades ou conhecimentos prévios necessários] | [Básico, Intermediário, Avançado ou Especialista]
+**Objetivo:** Conduzir uma entrevista estruturada para identificar o perfil do usuário e sugerir as melhores carreiras em tecnologia.
 
-- _Exemplo_:
+**Como funciona:**
 
-  - Java | Básico
-  - Gerenciamento de pacotes | Básico
-  -
+O agente realiza **7 perguntas sequenciais** (uma por vez) para mapear:
 
-- [Outros pré-requisitos, se aplicável]
+| # | Tema da Pergunta |
+|---|-----------------|
+| 1 | O que atrai o usuário em tecnologia |
+| 2 | Experiência prévia na área |
+| 3 | Disponibilidade de horas por semana |
+| 4 | Preferência de trabalho (pessoas, dados ou código) |
+| 5 | Objetivo principal (emprego, transição ou crescimento) |
+| 6 | Assuntos e tecnologias de interesse |
+| 7 | Experiências anteriores aproveitáveis |
 
-- _Exemplo_:
-  - Lógica de programação
-  - Javascript
+Após coletar as respostas, o agente aplica uma **matriz de decisão interna** (pontuação de 0 a 20) e apresenta as **3 carreiras mais compatíveis** com o perfil, ranqueadas e detalhadas com vantagens, desafios e contexto de mercado.
 
-## 🛠️ Habilidades e Sub-habilidades que vamos aprender neste conteúdo
+**Handoff:** Quando o usuário escolhe uma carreira, o Agent 1 transfere os dados do perfil para o Agent 2.
 
-- [Lista das habilidades principais a serem desenvolvidas]
+**Regras importantes:**
+- Faz **apenas 1 pergunta por vez**
+- Para após as 7 perguntas — sem perguntas extras
+- **Não gera planos de estudo** (responsabilidade do Agent 2)
+- **Não cita salários específicos**
 
-  - [Subhabilidades relacionadas, se aplicável]
+---
 
-- _Exemplo_:
-  - Java
-    - Api Rest
+### 🟢 Agent 2 — Planejador de Roadmap
 
-## 🎯 Objetivos e Resultados Esperados
+**Objetivo:** Receber o perfil coletado pelo Agent 1 e gerar um **plano completo e personalizado** de estudos para a carreira escolhida.
 
-Após a conclusão do curso/projeto, os estudantes estarão aptos a:
+**Dados recebidos do Agent 1:**
 
-- [Descrição do que os estudantes serão capazes de fazer]
-- [Projetos ou soluções que os estudantes estarão aptos a construir]
+| Campo | Descrição |
+|-------|-----------|
+| `CARREIRA_ESCOLHIDA` | Carreira selecionada pelo usuário |
+| `HORAS_SEMANA` | Disponibilidade semanal de estudo |
+| `EXPERIENCIA` | Nível: zero / iniciante / alguma |
+| `OBJETIVO` | Primeiro emprego / transição / crescimento |
+| `PREFERENCIA` | Pessoas / dados / código |
+| `INTERESSES` | Tecnologias mencionadas |
 
-<!--START_SECTION:footer-->
+**O que o agente entrega:**
 
-<br />
-<br />
+```
+🧩 Visão do Dia a Dia       → Atividades típicas da carreira
+🧠 Mapa de Skills           → Core skills + nice-to-have + ferramentas
+📅 Roadmap de 90 Dias       → Semana a semana, adaptado às horas disponíveis
+🚀 Projeto de Portfólio     → Projeto prático com escopo e entregáveis definidos
+💬 Roteiro de Entrevistas   → 5 perguntas comuns júnior com exemplos de resposta
+🎓 Trilha DIO Recomendada   → Bootcamp ou trilha específica na plataforma DIO
+```
 
-<p align="center">
-  <a href="https://www.dio.me/" target="_blank">
-    <img align="center" src="https://raw.githubusercontent.com/digitalinnovationone/template-github-trilha/main/.github/assets/footer.png" alt="banner"/>
-  </a>
-</p>
+**Personalização automática por perfil:**
+
+| Disponibilidade | Adaptação |
+|-----------------|-----------|
+| Menos de 5h/semana | Prazos estendidos, foco no essencial |
+| 5–10h/semana | Roadmap padrão de 90 dias |
+| Mais de 15h/semana | Conteúdo extra e projetos avançados |
+
+| Experiência | Adaptação |
+|-------------|-----------|
+| Zero | Explicações didáticas, fundamentos reforçados |
+| Iniciante | Equilíbrio entre teoria e prática |
+| Alguma | Foco em gaps específicos e portfólio |
+
+| Objetivo | Adaptação |
+|----------|-----------|
+| Primeiro emprego | Ênfase em portfólio e entrevistas |
+| Transição | Destaque para transferência de skills |
+| Crescimento | Foco em habilidades avançadas |
+
+---
+
+## 🔄 Fluxo Completo
+
+```
+                    ┌─────────────────────────────┐
+                    │         AGENT 1             │
+                    │      Entrevistador          │
+                    │                             │
+                    │  7 perguntas sequenciais    │
+                    │        ↓                    │
+                    │  Análise de perfil          │
+                    │        ↓                    │
+                    │  3 carreiras ranqueadas     │
+                    │        ↓                    │
+                    │  Usuário escolhe 1          │
+                    └────────────┬────────────────┘
+                                 │ handoff com dados do perfil
+                                 ▼
+                    ┌─────────────────────────────┐
+                    │         AGENT 2             │
+                    │        Planejador           │
+                    │                             │
+                    │  Recebe perfil completo     │
+                    │        ↓                    │
+                    │  Gera plano personalizado   │
+                    │        ↓                    │
+                    │  Roadmap de 90 dias pronto  │
+                    └─────────────────────────────┘
+```
+
+---
+
+## 🛠️ Como Usar
+
+1. Copie o prompt do **Agent 1** e cole em uma plataforma de IA (ex: ChatGPT, Copilot Studio, Claude)
+2. Responda as 7 perguntas da entrevista
+3. Escolha uma das 3 carreiras sugeridas
+4. Copie o prompt do **Agent 2** em uma nova conversa (ou configure o handoff na plataforma)
+5. Informe os dados do seu perfil e receba seu roadmap personalizado
+
+---
+
+## 🎓 Sobre o Projeto
+
+Projeto desenvolvido durante o bootcamp **CI&T — Do Prompt ao Agente** na plataforma [DIO](https://dio.me), com foco em engenharia de prompt e construção de agentes de IA aplicados a casos de uso reais.
